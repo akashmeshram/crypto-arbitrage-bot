@@ -1,11 +1,13 @@
 import socketio
+import json
 
 class SocketMarketRate:
-    def __init__(self, namespace, event_name):
+    def __init__(self, namespace, event_name, callback):
         self.namespace = namespace
         self.event_name = event_name
         self.base_url = "wss://ws.coinswitch.co"
         self.socketio_path = '/pro/realtime-rates-socket/spot'
+        self.callback = callback
 
         self.sio = socketio.AsyncClient(logger=False, engineio_logger=False)
         self.sio.on('connect', self.connect, namespace=self.namespace)
@@ -22,8 +24,7 @@ class SocketMarketRate:
         print("Disconnected from Socket.IO server")
 
     async def on_message(self, data):
-        # print(data)
-        pass
+        self.callback(data)
 
     async def catch_all(self, event, data):
         print(f'event data is:-  {event} {data}')
