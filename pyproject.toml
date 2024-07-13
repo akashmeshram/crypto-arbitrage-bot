@@ -15,6 +15,8 @@ python-socketio = "^5.11.3"
 websocket-client = "^1.8.0"
 requests = "^2.32.3"
 cryptography = "^42.0.8"
+asyncio = "^3.4.3"
+aiohttp = "^3.9.5"
 
 
 [build-system]
@@ -22,4 +24,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-start = "app.main:main"
+start = "app.main:run"
