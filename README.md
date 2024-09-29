@@ -1,3 +1,6 @@
+# ⚠️ This wont work anymore becuase of WazirX Removal from Coinswitch
+
+
 # crypto-arbitrage
 
 Crypto Arbitrage Trading
