@@ -2,6 +2,12 @@
 
 Crypto Arbitrage Trading
 
+## Command
+
+```py
+poetry run start
+```
+
 ## License
 
 Copyright © 2024 [Akash Meshram](https://github.com/akashmeshram).<br />
