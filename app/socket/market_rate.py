@@ -6,7 +6,7 @@ class SocketMarketRate:
         self.namespace = namespace
         self.event_name = event_name
         self.base_url = "wss://ws.coinswitch.co"
-        self.socketio_path = '/pro/realtime-rates-socket/spot'
+        self.socketio_path = '/pro/realtime-rates-socket/futures/bybit/public'
         self.callback = callback
 
         self.sio = socketio.AsyncClient(logger=False, engineio_logger=False)
@@ -17,7 +17,7 @@ class SocketMarketRate:
 
     async def connect(self):
         print(f"Connected to Socket.IO server {self.namespace}")
-        subscribe_data = {'event': 'subscribe'}
+        subscribe_data = {'event': 'subscribe', "symbol" : "btcusdt"}
         await self.sio.emit(self.event_name, subscribe_data, namespace=self.namespace)
 
     async def disconnect(self):

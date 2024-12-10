@@ -1,7 +1,7 @@
 import asyncio
 from dotenv import load_dotenv
 from app.api import coinswitch_api_validator
-from app.arbitrager import arbitrager
+from app.futures import futureTicks
 
 
 async def handle_data(source, data, order_books, arbitrage_calculator):
@@ -14,7 +14,12 @@ async def main():
     # call the coinswitch api validator
     coinswitch_api_validator()
     # Calculate arbitrage
-    await arbitrager()
+    # await arbitrager()
+
+    # Print Futures Ticks
+    await futureTicks()
+
+
 
 
 def run():
